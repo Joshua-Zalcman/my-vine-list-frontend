@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom';
 import './assets/css/blk-design-system-react.css';
 import './assets/css/bootstrap.min.css';
 import './assets/css/blk-design-system-react.min.css';
-// import './assets/css/';
 import './assets/css/nucleo-icons.css';
 import './index.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>,
+	<Router>
+		<React.StrictMode>
+			<App />
+		</React.StrictMode>
+	</Router>,
 	document.getElementById('root')
 );
 
