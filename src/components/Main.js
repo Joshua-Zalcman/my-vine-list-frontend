@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import LoginPage from '../pages/LoginPage';
 import Home from '../pages/Home';
 import WinesPage from '../pages/WinesPage';
+import WineShowPage from '../pages/WineShowPage';
 import { GlobalContext } from '../context/GlobalState';
 import { Switch, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
@@ -85,6 +86,7 @@ const Main = ({ URL }) => {
 					}}
 				/>
 				<Route
+				exact
 					path="/wines"
 					render={(pr) => {
 						return (
@@ -96,6 +98,12 @@ const Main = ({ URL }) => {
 								addWine={addWine}
 							/>
 						);
+					}}
+				/>
+				<Route
+					path="/wines/:id"
+					render={(pr) => {
+						return <WineShowPage {...pr} wines={wineList} />;
 					}}
 				/>
 			</Switch>
