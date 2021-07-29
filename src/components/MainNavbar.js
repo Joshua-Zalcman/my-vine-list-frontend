@@ -57,60 +57,62 @@ const MainNavbar = () => {
 					</button>
 					<UncontrolledCollapse navbar toggler="#navbarNavDropdown">
 						<Nav navbar className="ms-auto">
-							<NavItem className="active">
-								<LinkContainer to="/">
-									<NavLink>
-										Home <span className="sr-only">(current)</span>
-									</NavLink>
-								</LinkContainer>
-							</NavItem>
-							<NavItem>
-								<LinkContainer to="/wines">
-									<NavLink>
-										My Wines <span className="sr-only">(current)</span>
-									</NavLink>
-								</LinkContainer>
-							</NavItem>
-							<NavItem>
-								<LinkContainer to="/">
-									<NavLink>
-										My Stats <span className="sr-only">(current)</span>
-									</NavLink>
-								</LinkContainer>
-							</NavItem>
 							{/* login/register or user options */}
 							{userInfo.username ? (
-								<UncontrolledDropdown nav>
-									<DropdownToggle
-										aria-expanded={false}
-										aria-haspopup={true}
-										caret
-										color="default"
-										data-toggle="dropdown"
-										href="#pablo"
-										id="navbarDropdownMenuLink"
-										nav
-										onClick={(e) => e.preventDefault()}>
-										{userInfo.username}
-									</DropdownToggle>
-									<DropdownMenu aria-labelledby="navbarDropdownMenuLink">
-										<LinkContainer to="/profile">
-											<DropdownItem
-												href="#pablo"
-												onClick={(e) => e.preventDefault()}>
-												My Profile
-											</DropdownItem>
+								<>
+									<NavItem className="active">
+										<LinkContainer to="/">
+											<NavLink>
+												Home <span className="sr-only">(current)</span>
+											</NavLink>
 										</LinkContainer>
-										<LinkContainer to="/settings">
-											<DropdownItem
-												href="#pablo"
-												onClick={(e) => e.preventDefault()}>
-												My Settings
-											</DropdownItem>
+									</NavItem>
+									<NavItem>
+										<LinkContainer to="/wines">
+											<NavLink>
+												My Wines <span className="sr-only">(current)</span>
+											</NavLink>
 										</LinkContainer>
-										<DropdownItem onClick={handleLogout}>Logout</DropdownItem>
-									</DropdownMenu>
-								</UncontrolledDropdown>
+									</NavItem>
+									<NavItem>
+										<LinkContainer to="/">
+											<NavLink>
+												My Stats <span className="sr-only">(current)</span>
+											</NavLink>
+										</LinkContainer>
+									</NavItem>
+									<UncontrolledDropdown nav>
+										<DropdownToggle
+											aria-expanded={false}
+											aria-haspopup={true}
+											caret
+											color="default"
+											data-toggle="dropdown"
+											href="#pablo"
+											id="navbarDropdownMenuLink"
+											nav
+											onClick={(e) => e.preventDefault()}>
+											{userInfo.username}
+										</DropdownToggle>
+										<DropdownMenu aria-labelledby="navbarDropdownMenuLink">
+											<LinkContainer to="/profile">
+												<DropdownItem
+													href="#pablo"
+													onClick={(e) => e.preventDefault()}>
+													My Profile
+												</DropdownItem>
+											</LinkContainer>
+											<LinkContainer to="/settings">
+												<DropdownItem
+													href="#pablo"
+													onClick={(e) => e.preventDefault()}>
+													My Settings
+												</DropdownItem>
+											</LinkContainer>
+											<DropdownItem onClick={handleLogout}>Logout</DropdownItem>
+										</DropdownMenu>
+									</UncontrolledDropdown>
+								</>
 							) : (
 								<>
 									<NavItem>
