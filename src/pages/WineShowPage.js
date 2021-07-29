@@ -25,6 +25,7 @@ const WineShowPage = ({ wines, match, history }) => {
 						<h2>{wineData.title}</h2>
 						<p>Price: {wineData.price}</p>
 						<p>Your thoughts: {wineData.review}</p>
+						<p>Country: {wineData.country}</p>
 					</Col>
 				</Row>
 			)}
