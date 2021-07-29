@@ -35,7 +35,7 @@ const MainNavbar = () => {
 				<div
 					id="bodyClick"
 					onClick={() => {
-						document.documentElement.classList.toggle('nav-open');
+						document.documentElement.classList.toggle('navbarNav');
 						setBodyClick(false);
 					}}
 				/>
@@ -50,7 +50,7 @@ const MainNavbar = () => {
 						id="navbarNavDropdown"
 						type="button"
 						onClick={() => {
-							document.documentElement.classList.toggle('nav-open');
+							document.documentElement.classList.toggle('navbarNav');
 							setBodyClick(true);
 						}}>
 						&#9776;
