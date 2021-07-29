@@ -38,9 +38,29 @@ export const getUserFromToken = async () => {
 		} else {
 			return null;
 		}
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 };
 
-export const removeTokenFromStorage = () => {
-	localStorage.removeItem('token');
+export const removeTokenFromStorage = async () => {
+	let token = localStorage.getItem('token');
+	// Headers
+	const config = {
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	};
+	// If token, add to headers config and remove
+	if (token) {
+		config.headers['Authorization'] = `Token ${token}`;
+
+		try {
+			await axios.post('http://localhost:8000/api/auth/user', config);
+		} catch (error) {
+			console.log(error);
+		}
+
+		localStorage.removeItem('token');
+	}
 };

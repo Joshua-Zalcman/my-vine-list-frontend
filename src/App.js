@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Footer from './components/Footer';
-import Navbar from './components/Navbar';
+import MainNavbar from './components/MainNavbar';
 import Main from './components/Main';
-import { GlobalProvider } from './context/GlobalState';
+import { GlobalContext, GlobalProvider } from './context/GlobalState';
 
 function App() {
 	const [wineList, setWineList] = useState([]);
 	URL = 'http://localhost:8000/api/';
+
 	useEffect(() => {}, []);
 
 	const getWines = async () => {
@@ -18,7 +19,7 @@ function App() {
 	return (
 		<GlobalProvider>
 			<div>
-				{/* <Navbar /> */}
+				<MainNavbar />
 				<Main URL={URL} />
 				<Footer />
 			</div>
