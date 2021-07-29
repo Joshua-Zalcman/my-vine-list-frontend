@@ -3,7 +3,7 @@ import LoginPage from '../pages/LoginPage';
 import Home from '../pages/Home';
 import { Switch, Route } from 'react-router-dom';
 
-const Main = ({ URL, loginUser }) => {
+const Main = ({ URL, }) => {
 	return (
 		<div>
 			<Switch>
@@ -13,7 +13,7 @@ const Main = ({ URL, loginUser }) => {
 				<Route
 					path="/login"
 					render={(pr) => {
-						return <LoginPage loginUser={loginUser} {...pr} />;
+						return <LoginPage  {...pr} />;
 					}}
 				/>
 			</Switch>
