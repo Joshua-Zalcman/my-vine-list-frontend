@@ -6,15 +6,12 @@ import Main from './components/Main';
 import { GlobalContext, GlobalProvider } from './context/GlobalState';
 
 function App() {
-	const [wineList, setWineList] = useState([]);
+
 	URL = 'http://localhost:8000/api/';
 
 	useEffect(() => {}, []);
 
-	const getWines = async () => {
-		const wines = await axios.get(URL);
-		console.log(wines.data);
-	};
+
 
 	return (
 		<GlobalProvider>
