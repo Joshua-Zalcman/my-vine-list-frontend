@@ -55,6 +55,23 @@ const Main = ({ URL }) => {
 		}
 	};
 
+	const addWine = async (data) => {
+		const token = localStorage.getItem('token');
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Token ${token}`,
+			},
+		};
+		try {
+			const response = await axios.post(`${URL}wines/`, data, config);
+			console.log(response.data);
+			getWines();
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
 		<Container className="mt-2">
 			<Switch>
@@ -76,6 +93,7 @@ const Main = ({ URL }) => {
 								wines={wineList}
 								deleteWine={deleteWine}
 								getWines={getWines}
+								addWine={addWine}
 							/>
 						);
 					}}
