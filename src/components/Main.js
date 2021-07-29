@@ -74,7 +74,7 @@ const Main = ({ URL }) => {
 	};
 
 	return (
-		<Container className="mt-2">
+		<Container className="mt-2" style={{ minHeight: '90vh' }}>
 			<Switch>
 				<Route exact path="/">
 					<Home />
@@ -86,7 +86,7 @@ const Main = ({ URL }) => {
 					}}
 				/>
 				<Route
-				exact
+					exact
 					path="/wines"
 					render={(pr) => {
 						return (

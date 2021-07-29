@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
 const WineShowPage = ({ wines, match, history }) => {
-	const [wineData, setWineData] = useState({});
+	const [wineData, setWineData] = useState(null);
 	useEffect(() => {
 		if (wines) {
 			const id = match.params.id;
-			const wineData = wines.find((wine) => wine.id == id);
-			setWineData(wineData);
+			const wine = wines.find((wine) => wine.id == id);
+			console.log(wine);
+			setWineData(wine);
 		} else {
 			history.push('/');
 		}
@@ -15,13 +16,15 @@ const WineShowPage = ({ wines, match, history }) => {
 
 	return (
 		<Container>
-			{wineData.title && (
+			{wineData && (
 				<Row>
 					<Col>
 						<img src={wineData.img} alt={wineData.title} />
 					</Col>
 					<Col>
 						<h2>{wineData.title}</h2>
+						<p>Price: {wineData.price}</p>
+						<p>Your thoughts: {wineData.review}</p>
 					</Col>
 				</Row>
 			)}
