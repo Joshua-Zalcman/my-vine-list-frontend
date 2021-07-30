@@ -7,6 +7,7 @@ import { GlobalContext } from '../context/GlobalState';
 import { Switch, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import axios from 'axios';
+import StatsPage from '../pages/StatsPage';
 
 const Main = ({ URL }) => {
 	const { checkForToken, userInfo } = useContext(GlobalContext);
@@ -72,7 +73,7 @@ const Main = ({ URL }) => {
 		}
 	};
 
-	const updateWine = async (data,id) => {
+	const updateWine = async (data, id) => {
 		const token = localStorage.getItem('token');
 		const config = {
 			headers: {
@@ -88,7 +89,6 @@ const Main = ({ URL }) => {
 			console.log(error);
 		}
 	};
-	
 
 	return (
 		<Container className="mt-2" style={{ minHeight: '90vh' }}>
@@ -120,7 +120,17 @@ const Main = ({ URL }) => {
 				<Route
 					path="/wines/:id"
 					render={(pr) => {
-						return <WineShowPage {...pr} wines={wineList} updateWine={updateWine} />;
+						return (
+							<WineShowPage {...pr} wines={wineList} updateWine={updateWine} />
+						);
+					}}
+				/>
+				<Route
+					path="/stats"
+					render={(pr) => {
+						return (
+							<StatsPage {...pr} wines={wineList}  />
+						);
 					}}
 				/>
 			</Switch>

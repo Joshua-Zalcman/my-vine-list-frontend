@@ -75,7 +75,7 @@ const MainNavbar = () => {
 										</LinkContainer>
 									</NavItem>
 									<NavItem>
-										<LinkContainer to="/">
+										<LinkContainer to="/stats">
 											<NavLink>
 												My Stats <span className="sr-only">(current)</span>
 											</NavLink>
