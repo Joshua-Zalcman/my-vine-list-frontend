@@ -31,7 +31,6 @@ const Main = ({ URL }) => {
 		};
 		try {
 			const response = await axios.get(`${URL}wines/`, config);
-			console.log(response.data);
 			if (response.data) {
 				setWineList(response.data);
 			}
@@ -73,6 +72,24 @@ const Main = ({ URL }) => {
 		}
 	};
 
+	const updateWine = async (data,id) => {
+		const token = localStorage.getItem('token');
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+				Authorization: `Token ${token}`,
+			},
+		};
+		try {
+			const response = await axios.put(`${URL}wines/${id}/`, data, config);
+			console.log(response.data);
+			getWines();
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	
+
 	return (
 		<Container className="mt-2" style={{ minHeight: '90vh' }}>
 			<Switch>
@@ -103,7 +120,7 @@ const Main = ({ URL }) => {
 				<Route
 					path="/wines/:id"
 					render={(pr) => {
-						return <WineShowPage {...pr} wines={wineList} />;
+						return <WineShowPage {...pr} wines={wineList} updateWine={updateWine} />;
 					}}
 				/>
 			</Switch>

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Button, Modal, ModalFooter, ModalBody, ModalHeader } from 'reactstrap';
+import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import Wine from '../components/Wine';
-import AddWineForm from '../components/AddWineForm';
+import WineForm from '../components/WineForm';
 
 const WinesPage = ({ wines, deleteWine, getWines,addWine }) => {
 	const [modal, setModal] = useState(false);
@@ -28,9 +28,8 @@ const WinesPage = ({ wines, deleteWine, getWines,addWine }) => {
 					Add new wine
 				</ModalHeader>
 				<ModalBody>
-					<AddWineForm toggleModal={toggleModal} addWine={addWine}/>
+					<WineForm toggleModal={toggleModal} addWine={addWine}/>
 				</ModalBody>
-				
 			</Modal>
 			{wines.length > 0 ? (
 				<div>

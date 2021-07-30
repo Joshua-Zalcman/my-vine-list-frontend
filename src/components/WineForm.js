@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {
 	FormGroup,
@@ -12,13 +12,13 @@ import {
 	CardBody,
 } from 'reactstrap';
 
-const AddWineForm = ({ toggleModal,addWine }) => {
+const WineForm = ({ toggleModal, addWine, updateWine, wine }) => {
 	const [formState, setFormState] = useState({
 		title: '',
 		winery: '',
 		img: '',
 		price: 0,
-		date: null,
+		date: '',
 		review: '',
 		rating: 5,
 		variety: '',
@@ -27,36 +27,58 @@ const AddWineForm = ({ toggleModal,addWine }) => {
 		where_purchased: '',
 	});
 
+	useEffect(() => {
+		if (wine) {
+			setFormState({
+				title: wine.title,
+				winery: wine.winery,
+				img: wine.img,
+				price: wine.price,
+				date: wine.date,
+				review: wine.review,
+				rating: wine.rating,
+				variety: wine.variety,
+				country: wine.country,
+				region: wine.region,
+				where_purchased: wine.where_purchased,
+			});
+		}
+	}, []);
+
 	const handleChange = (e) => {
 		setFormState((prevState) => {
 			return { ...prevState, [e.target.name]: e.target.value };
 		});
 	};
 
-	const handleSubmitAdd = (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
 		//check feilds are not blank
-		addWine(formState)
-		setFormState({
-			title: '',
-			winery: '',
-			img: '',
-			price: 0,
-			date: null,
-			review: '',
-			rating: 5,
-			variety: '',
-			country: '',
-			region: '',
-			where_purchased: '',
-		})
-		toggleModal()
+		if (wine) {
+			updateWine(formState, wine.id);
+		} else {
+			addWine(formState);
+			setFormState({
+				title: '',
+				winery: '',
+				img: '',
+				price: 0,
+				date: null,
+				review: '',
+				rating: 5,
+				variety: '',
+				country: '',
+				region: '',
+				where_purchased: '',
+			});
+		}
+		toggleModal();
 	};
 
 	return (
 		<Card>
 			<CardBody>
-				<form onSubmit={handleSubmitAdd}>
+				<form onSubmit={handleSubmit}>
 					<Row>
 						<Col>
 							{' '}
@@ -211,7 +233,7 @@ const AddWineForm = ({ toggleModal,addWine }) => {
 
 					<div className="d-flex justify-content-between">
 						<Button color="primary" type="submit">
-							Add Wine
+							{wine ? 'Update wine' : 'Add Wine'}
 						</Button>
 						<Button color="secondary" onClick={toggleModal}>
 							Cancel
@@ -223,4 +245,4 @@ const AddWineForm = ({ toggleModal,addWine }) => {
 	);
 };
 
-export default AddWineForm;
+export default WineForm;
