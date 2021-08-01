@@ -1,22 +1,7 @@
-/*!
 
-=========================================================
-* BLK Design System React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/blk-design-system-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/blk-design-system-react/blob/main/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 import { Link } from "react-router-dom";
+
 // reactstrap components
 import {
   Button,
@@ -45,8 +30,8 @@ export default function Footer() {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to="/landing-page" tag={Link}>
-                  Landing
+                <NavLink to="/login" tag={Link}>
+                  Login
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -64,7 +49,7 @@ export default function Footer() {
           <Col md="3">
             <Nav>
               <NavItem>
-                <NavLink href="https://creative-tim.com/contact-us?ref=blkdsr-footer">
+                <NavLink to='/' tag={Link}>
                   Contact Us
                 </NavLink>
               </NavItem>
@@ -73,11 +58,7 @@ export default function Footer() {
                   About Us
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="https://creative-tim.com/blog?ref=blkdsr-footer">
-                  Blog
-                </NavLink>
-              </NavItem>
+              
               <NavItem>
                 <NavLink href="https://opensource.org/licenses/MIT">
                   License
