@@ -10,8 +10,9 @@ import {
 } from 'reactstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import WineForm from '../components/WineForm';
+import Rating from '../components/Rating';
 
-const WineShowPage = ({ wines, match, history,updateWine }) => {
+const WineShowPage = ({ wines, match, history, updateWine }) => {
 	const [wineData, setWineData] = useState(null);
 	const [modal, setModal] = useState(false);
 
@@ -47,7 +48,11 @@ const WineShowPage = ({ wines, match, history,updateWine }) => {
 					Update wine
 				</ModalHeader>
 				<ModalBody>
-					<WineForm toggleModal={toggleModal} wine={wineData}updateWine={updateWine} />
+					<WineForm
+						toggleModal={toggleModal}
+						wine={wineData}
+						updateWine={updateWine}
+					/>
 				</ModalBody>
 			</Modal>
 			{wineData && (
@@ -73,7 +78,9 @@ const WineShowPage = ({ wines, match, history,updateWine }) => {
 							</Col>
 							<Col>
 								{' '}
-								<p>Your rating: {wineData.rating}</p>
+								<p>
+									Your rating: <Rating rating={wineData.rating} />
+								</p>
 							</Col>
 						</Row>
 

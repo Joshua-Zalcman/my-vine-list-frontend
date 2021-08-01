@@ -58,11 +58,12 @@ const MainNavbar = () => {
 					<UncontrolledCollapse navbar toggler="#navbarNavDropdown">
 						<Nav navbar className="ms-auto">
 							{/* login/register or user options */}
-							{ userInfo && userInfo.username ? (
+							{userInfo && userInfo.username ? (
 								<>
 									<NavItem className="active">
 										<LinkContainer to="/">
 											<NavLink>
+												<i className="fas fa-home"></i>
 												Home <span className="sr-only">(current)</span>
 											</NavLink>
 										</LinkContainer>
@@ -70,6 +71,7 @@ const MainNavbar = () => {
 									<NavItem>
 										<LinkContainer to="/wines">
 											<NavLink>
+												<i className="fas fa-wine-bottle"></i>
 												My Wines <span className="sr-only">(current)</span>
 											</NavLink>
 										</LinkContainer>
@@ -77,6 +79,8 @@ const MainNavbar = () => {
 									<NavItem>
 										<LinkContainer to="/stats">
 											<NavLink>
+												{' '}
+												<i className="fas fa-globe-americas"></i>
 												My Stats <span className="sr-only">(current)</span>
 											</NavLink>
 										</LinkContainer>
@@ -92,6 +96,7 @@ const MainNavbar = () => {
 											id="navbarDropdownMenuLink"
 											nav
 											onClick={(e) => e.preventDefault()}>
+											<i className="fas fa-user"></i>
 											{userInfo.username}
 										</DropdownToggle>
 										<DropdownMenu aria-labelledby="navbarDropdownMenuLink">

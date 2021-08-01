@@ -8,11 +8,11 @@ import {
 	CardBody,
 	Button,
 } from 'reactstrap';
+import Rating from './Rating';
 
 const Wine = ({ wine, deleteWine, getWines }) => {
 	const handleDelete = (id) => {
 		deleteWine(id);
-		
 	};
 	return (
 		<div>
@@ -27,7 +27,9 @@ const Wine = ({ wine, deleteWine, getWines }) => {
 
 					<CardText>Price: {wine.price}</CardText>
 
-					<CardText>Rating: {wine.rating}</CardText>
+					<CardText>
+						Rating: <Rating rating={wine.rating} />
+					</CardText>
 					<CardText>
 						<small className="text-muted">
 							Entry from {wine.created_at.split('T')[0]}
