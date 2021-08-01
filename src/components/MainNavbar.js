@@ -58,7 +58,7 @@ const MainNavbar = () => {
 					<UncontrolledCollapse navbar toggler="#navbarNavDropdown">
 						<Nav navbar className="ms-auto">
 							{/* login/register or user options */}
-							{userInfo.username ? (
+							{ userInfo && userInfo.username ? (
 								<>
 									<NavItem className="active">
 										<LinkContainer to="/">

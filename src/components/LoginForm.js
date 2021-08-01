@@ -1,14 +1,6 @@
 import { useState } from 'react';
 
-import {
-	FormGroup,
-	Label,
-	Input,
-	FormText,
-	Button,
-	Card,
-	CardBody,
-} from 'reactstrap';
+import { FormGroup, Label, Input, Button, Card, CardBody } from 'reactstrap';
 
 const LoginForm = ({ loginUser }) => {
 	const [formState, setFormState] = useState({

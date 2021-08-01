@@ -1,17 +1,16 @@
 import { useContext, useState } from 'react';
-import { Container } from 'reactstrap';
-import LoginForm from '../components/LoginForm';
-import { GlobalContext } from '../context/GlobalState';
+import RegisterForm from '../components/RegisterForm';
 import axios from 'axios';
+import { GlobalContext } from '../context/GlobalState';
 
-const LoginPage = ({ URL, history }) => {
+const RegisterPage = ({ URL,history }) => {
 	const { checkForToken } = useContext(GlobalContext);
 	const [message, setMessage] = useState('');
-
-	const loginUser = async (username, password) => {
+	const registerUser = async (username, email, password) => {
 		try {
-			const response = await axios.post(`${URL}auth/login`, {
+			const response = await axios.post(`${URL}auth/register`, {
 				username,
+				email,
 				password,
 			});
 			if (response.data.token) {
@@ -25,13 +24,12 @@ const LoginPage = ({ URL, history }) => {
 			console.log(error);
 		}
 	};
-
 	return (
-		<Container>
+		<div>
 			{message && <p>{message}</p>}
-			<LoginForm loginUser={loginUser} />
-		</Container>
+			<RegisterForm registerUser={registerUser} />
+		</div>
 	);
 };
 
-export default LoginPage;
+export default RegisterPage;

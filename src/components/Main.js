@@ -8,6 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import axios from 'axios';
 import StatsPage from '../pages/StatsPage';
+import RegisterPage from '../pages/RegisterPage';
 
 const Main = ({ URL }) => {
 	const { checkForToken, userInfo } = useContext(GlobalContext);
@@ -99,7 +100,13 @@ const Main = ({ URL }) => {
 				<Route
 					path="/login"
 					render={(pr) => {
-						return <LoginPage {...pr} />;
+						return <LoginPage {...pr} URL={URL} />;
+					}}
+				/>
+				<Route
+					path="/register"
+					render={(pr) => {
+						return <RegisterPage {...pr} URL={URL} />;
 					}}
 				/>
 				<Route
@@ -128,9 +135,7 @@ const Main = ({ URL }) => {
 				<Route
 					path="/stats"
 					render={(pr) => {
-						return (
-							<StatsPage {...pr} wines={wineList}  />
-						);
+						return <StatsPage {...pr} wines={wineList} />;
 					}}
 				/>
 			</Switch>
