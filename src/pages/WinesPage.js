@@ -1,10 +1,18 @@
 import { useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
+import SearchForm from '../components/SearchForm';
 import Wine from '../components/Wine';
 import WineForm from '../components/WineForm';
 
-const WinesPage = ({ wines, deleteWine, getWines, addWine }) => {
+const WinesPage = ({
+	wines,
+	deleteWine,
+	handleSearch,
+	getWines,
+	addWine,
+	message,
+}) => {
 	const [modal, setModal] = useState(false);
 
 	const toggleModal = () => setModal(!modal);
@@ -17,10 +25,11 @@ const WinesPage = ({ wines, deleteWine, getWines, addWine }) => {
 
 	return (
 		<div>
-			<div className="d-flex justify-content-between">
+			<div className="d-flex flex-wrap justify-content-between mb-4">
 				<LinkContainer to="/">
 					<Button>Go Back</Button>
 				</LinkContainer>
+				<SearchForm getWines={getWines} handleSearch={handleSearch} />
 				<Button onClick={toggleModal}>Add New Wine</Button>
 			</div>
 			<Modal isOpen={modal} toggle={toggleModal}>
@@ -31,10 +40,11 @@ const WinesPage = ({ wines, deleteWine, getWines, addWine }) => {
 					<WineForm toggleModal={toggleModal} addWine={addWine} />
 				</ModalBody>
 			</Modal>
+			{message && <h4 className="text-center my-3">{message}</h4>}
 			{wines.length > 0 ? (
-				<div >
+				<div>
 					{wines.map((wine) => (
-						<Wine 
+						<Wine
 							key={wine.id}
 							wine={wine}
 							deleteWine={deleteWine}

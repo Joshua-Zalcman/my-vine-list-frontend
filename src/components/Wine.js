@@ -15,7 +15,7 @@ const Wine = ({ wine, deleteWine, getWines }) => {
 		deleteWine(id);
 	};
 	return (
-		<div >
+		<>
 			<Card className="w-50 mx-auto">
 				<CardImg top width="100px" src={wine.img} alt="Card image cap" />
 				<CardBody>
@@ -35,7 +35,7 @@ const Wine = ({ wine, deleteWine, getWines }) => {
 							Entry from {wine.created_at.split('T')[0]}
 						</small>
 					</CardText>
-					<div className="d-flex justify-content-between">
+					<div className="d-flex flex-wrap justify-content-between">
 						<LinkContainer to={`wines/${wine.id}`}>
 							<Button>Details</Button>
 						</LinkContainer>
@@ -43,7 +43,7 @@ const Wine = ({ wine, deleteWine, getWines }) => {
 					</div>
 				</CardBody>
 			</Card>
-		</div>
+		</>
 	);
 };
 

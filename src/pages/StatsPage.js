@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import MapChart from '../components/MapChart';
 import { Container, Row, Col } from 'reactstrap';
 import ReactTooltip from 'react-tooltip';
 
-const StatsPage = ({ wines }) => {
+const StatsPage = ({ wines,handleSearch,history,getWines }) => {
+	useEffect(()=>{
+		getWines()
+	},[])
 	const [tooltip, setToolTip] = useState('');
 	const avgPrice =
 		wines.reduce((acc, wine) => acc + wine.price, 0) / wines.length;
@@ -18,14 +21,16 @@ const StatsPage = ({ wines }) => {
 		}
 	});
 
+
+
 	return (
 		<Container>
 			<h2 className="text-center mt-4">Wine Map</h2>
 			<div style={{ backgroundColor: 'grey' }}>
 				<MapChart
-					wines={wines}
+					handleSearch={handleSearch}
 					countryList={countryList}
-					setToolTip={setToolTip}
+					setToolTip={setToolTip} history={history}
 				/>
 				<ReactTooltip>{tooltip}</ReactTooltip>
 			</div>
