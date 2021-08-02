@@ -15,8 +15,8 @@ const Wine = ({ wine, deleteWine, getWines }) => {
 		deleteWine(id);
 	};
 	return (
-		<div>
-			<Card className="w-50">
+		<div >
+			<Card className="w-50 mx-auto">
 				<CardImg top width="100px" src={wine.img} alt="Card image cap" />
 				<CardBody>
 					<CardTitle tag="h5">

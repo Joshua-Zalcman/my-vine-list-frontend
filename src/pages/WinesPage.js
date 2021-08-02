@@ -4,7 +4,7 @@ import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import Wine from '../components/Wine';
 import WineForm from '../components/WineForm';
 
-const WinesPage = ({ wines, deleteWine, getWines,addWine }) => {
+const WinesPage = ({ wines, deleteWine, getWines, addWine }) => {
 	const [modal, setModal] = useState(false);
 
 	const toggleModal = () => setModal(!modal);
@@ -28,13 +28,13 @@ const WinesPage = ({ wines, deleteWine, getWines,addWine }) => {
 					Add new wine
 				</ModalHeader>
 				<ModalBody>
-					<WineForm toggleModal={toggleModal} addWine={addWine}/>
+					<WineForm toggleModal={toggleModal} addWine={addWine} />
 				</ModalBody>
 			</Modal>
 			{wines.length > 0 ? (
-				<div>
+				<div >
 					{wines.map((wine) => (
-						<Wine
+						<Wine 
 							key={wine.id}
 							wine={wine}
 							deleteWine={deleteWine}

@@ -5,8 +5,10 @@ import ReactTooltip from 'react-tooltip';
 
 const StatsPage = ({ wines }) => {
 	const [tooltip, setToolTip] = useState('');
-	const avgPrice = wines.reduce((acc,wine)=>acc+wine.price,0)/wines.length
-	const avgRating = wines.reduce((acc,wine)=>acc+wine.rating,0)/wines.length
+	const avgPrice =
+		wines.reduce((acc, wine) => acc + wine.price, 0) / wines.length;
+	const avgRating =
+		wines.reduce((acc, wine) => acc + wine.rating, 0) / wines.length;
 	let countryList = {};
 	wines.forEach((wine) => {
 		if (countryList[wine.country]) {
@@ -36,8 +38,8 @@ const StatsPage = ({ wines }) => {
 				<Col style={{ backgroundColor: '#210721' }}> 5+ Bottles</Col>
 			</Row>
 			<div className=" mt-5 d-flex flex-column justify-content-around align-items-center">
-				<h2>Average Wine Rating: {avgRating}</h2>
-				<h2>Average Wine Price: ${avgPrice}</h2>
+				<h2>Average Wine Rating: {avgRating.toFixed(2)}</h2>
+				<h2>Average Wine Price: ${avgPrice.toFixed(2)}</h2>
 			</div>
 		</Container>
 	);
