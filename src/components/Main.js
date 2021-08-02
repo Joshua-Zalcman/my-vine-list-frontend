@@ -4,13 +4,15 @@ import Home from '../pages/Home';
 import WinesPage from '../pages/WinesPage';
 import WineShowPage from '../pages/WineShowPage';
 import { GlobalContext } from '../context/GlobalState';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import axios from 'axios';
 import StatsPage from '../pages/StatsPage';
 import RegisterPage from '../pages/RegisterPage';
+import { getUserFromToken } from '../actions/token_actions';
 
 const Main = ({ URL }) => {
+	const history = useHistory();
 	const { checkForToken, userInfo } = useContext(GlobalContext);
 
 	const [wineList, setWineList] = useState([]);
@@ -113,29 +115,51 @@ const Main = ({ URL }) => {
 					exact
 					path="/wines"
 					render={(pr) => {
-						return (
-							<WinesPage
-								{...pr}
-								wines={wineList}
-								deleteWine={deleteWine}
-								getWines={getWines}
-								addWine={addWine}
-							/>
-						);
+						const token = localStorage.getItem('token');
+						const user = getUserFromToken();
+						if ((token && userInfo.username) || user.username) {
+							return (
+								<WinesPage
+									{...pr}
+									wines={wineList}
+									deleteWine={deleteWine}
+									getWines={getWines}
+									addWine={addWine}
+								/>
+							);
+						} else {
+							history.push('/login');
+						}
 					}}
 				/>
 				<Route
 					path="/wines/:id"
 					render={(pr) => {
-						return (
-							<WineShowPage {...pr} wines={wineList} updateWine={updateWine} />
-						);
+						const token = localStorage.getItem('token');
+						const user = getUserFromToken();
+						if ((token && userInfo.username) || user.username) {
+							return (
+								<WineShowPage
+									{...pr}
+									wines={wineList}
+									updateWine={updateWine}
+								/>
+							);
+						} else {
+							history.push('/login');
+						}
 					}}
 				/>
 				<Route
 					path="/stats"
 					render={(pr) => {
-						return <StatsPage {...pr} wines={wineList} />;
+						const token = localStorage.getItem('token');
+						const user = getUserFromToken();
+						if ((token && userInfo.username) || user.username) {
+							return <StatsPage {...pr} wines={wineList} />;
+						} else {
+							history.push('/login');
+						}
 					}}
 				/>
 			</Switch>
