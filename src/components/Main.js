@@ -16,6 +16,7 @@ const Main = ({ URL }) => {
 	const { checkForToken, userInfo } = useContext(GlobalContext);
 
 	const [wineList, setWineList] = useState([]);
+	const [message, setMessage] = useState('');
 
 	useEffect(() => {
 		checkForToken();
@@ -93,6 +94,22 @@ const Main = ({ URL }) => {
 		}
 	};
 
+	const handleSearch = (value, term) => {
+		
+		let searchResult = wineList.filter((wine) =>
+			wine[term].toLowerCase().includes(value.toLowerCase())
+		);
+		setWineList(searchResult);
+		if (term === 'title') {
+			setMessage(`Wines with '${value}' in their title`);
+		} else if (term === 'country') {
+			setMessage(`Wines from ${value}`);
+		} else {
+			setMessage(`${value} wines`);
+		}
+		console.log(message);
+	};
+
 	return (
 		<Container className="mt-2" style={{ minHeight: '90vh' }}>
 			<Switch>
@@ -125,6 +142,8 @@ const Main = ({ URL }) => {
 									deleteWine={deleteWine}
 									getWines={getWines}
 									addWine={addWine}
+									handleSearch={handleSearch}
+									message={message}
 								/>
 							);
 						} else {
