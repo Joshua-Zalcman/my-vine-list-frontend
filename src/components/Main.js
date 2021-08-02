@@ -95,7 +95,6 @@ const Main = ({ URL }) => {
 	};
 
 	const handleSearch = (value, term) => {
-		
 		let searchResult = wineList.filter((wine) =>
 			wine[term].toLowerCase().includes(value.toLowerCase())
 		);
@@ -175,7 +174,14 @@ const Main = ({ URL }) => {
 						const token = localStorage.getItem('token');
 						const user = getUserFromToken();
 						if ((token && userInfo.username) || user.username) {
-							return <StatsPage {...pr} wines={wineList} />;
+							return (
+								<StatsPage
+									{...pr}
+									wines={wineList}
+									getWines={getWines}
+									handleSearch={handleSearch}
+								/>
+							);
 						} else {
 							history.push('/login');
 						}
