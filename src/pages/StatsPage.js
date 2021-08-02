@@ -1,12 +1,12 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import MapChart from '../components/MapChart';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Progress } from 'reactstrap';
 import ReactTooltip from 'react-tooltip';
 
-const StatsPage = ({ wines,handleSearch,history,getWines }) => {
-	useEffect(()=>{
-		getWines()
-	},[])
+const StatsPage = ({ wines, handleSearch, history, getWines }) => {
+	useEffect(() => {
+		getWines();
+	}, []);
 	const [tooltip, setToolTip] = useState('');
 	const avgPrice =
 		wines.reduce((acc, wine) => acc + wine.price, 0) / wines.length;
@@ -21,8 +21,6 @@ const StatsPage = ({ wines,handleSearch,history,getWines }) => {
 		}
 	});
 
-
-
 	return (
 		<Container>
 			<h2 className="text-center mt-4">Wine Map</h2>
@@ -30,7 +28,8 @@ const StatsPage = ({ wines,handleSearch,history,getWines }) => {
 				<MapChart
 					handleSearch={handleSearch}
 					countryList={countryList}
-					setToolTip={setToolTip} history={history}
+					setToolTip={setToolTip}
+					history={history}
 				/>
 				<ReactTooltip>{tooltip}</ReactTooltip>
 			</div>
@@ -42,9 +41,28 @@ const StatsPage = ({ wines,handleSearch,history,getWines }) => {
 				<Col style={{ backgroundColor: '#491049' }}> 4 Bottles</Col>
 				<Col style={{ backgroundColor: '#210721' }}> 5+ Bottles</Col>
 			</Row>
-			<div className=" mt-5 d-flex flex-column justify-content-around align-items-center">
-				<h2>Average Wine Rating: {avgRating.toFixed(2)}</h2>
-				<h2>Average Wine Price: ${avgPrice.toFixed(2)}</h2>
+			<h2 className="mt-5 text-center">Wine Stats</h2>
+			<div className="mb-5  d-flex flex-wrap justify-content-between align-items-center">
+				<div className="progress-container progress-success mt-3 w-25">
+					<p className="progress-badge">
+						Average Wine Rating: {avgRating.toFixed(2)}
+					</p>
+					<Progress max="5" value={avgRating.toFixed(2)}></Progress>
+				</div>
+				<div className="progress-container progress-success w-25">
+					<p className="progress-badge">
+						Average Wine Price: {avgPrice.toFixed(2)}
+					</p>
+					<Progress max="100" value={avgPrice.toFixed(2)}></Progress>
+				</div>
+				<div className="progress-container progress-success w-25">
+					<p className="progress-badge">
+						Number of Countries: {Object.keys(countryList).length}
+					</p>
+					<Progress
+						max="100"
+						value={Object.keys(countryList).length}></Progress>
+				</div>
 			</div>
 		</Container>
 	);
