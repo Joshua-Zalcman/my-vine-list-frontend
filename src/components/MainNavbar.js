@@ -122,12 +122,16 @@ const MainNavbar = () => {
 								<>
 									<NavItem>
 										<LinkContainer to="/login">
-											<NavLink>Login</NavLink>
+											<NavLink>
+												<i className="fas fa-sign-in-alt"></i>Login
+											</NavLink>
 										</LinkContainer>
 									</NavItem>
 									<NavItem>
 										<LinkContainer to="/register">
-											<NavLink>Register</NavLink>
+											<NavLink>
+												<i className="fas fa-user-plus"></i>Register
+											</NavLink>
 										</LinkContainer>
 									</NavItem>
 								</>
