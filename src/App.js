@@ -6,12 +6,9 @@ import Main from './components/Main';
 import { GlobalContext, GlobalProvider } from './context/GlobalState';
 
 function App() {
-
-	URL = 'http://localhost:8000/api/';
+	URL = 'https://my-vine-list-backend.herokuapp.com/api/';
 
 	useEffect(() => {}, []);
-
-
 
 	return (
 		<GlobalProvider>

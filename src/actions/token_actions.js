@@ -13,7 +13,7 @@ export const getUserFromToken = async () => {
 		config.headers['Authorization'] = `Token ${token}`;
 		try {
 			const response = await axios.get(
-				'http://localhost:8000/api/auth/user',
+				'https://my-vine-list-backend.herokuapp.com/api/auth/user',
 				config
 			);
 			if (response.data) {
@@ -42,7 +42,7 @@ export const removeTokenFromStorage = async () => {
 		config.headers['Authorization'] = `Token ${token}`;
 
 		try {
-			await axios.post('http://localhost:8000/api/auth/logout', null, config);
+			await axios.post('https://my-vine-list-backend.herokuapp.com/api/auth/logout', null, config);
 		} catch (error) {
 			console.log(error);
 		}
