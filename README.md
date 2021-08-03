@@ -30,7 +30,7 @@ My vine list is built in React and connects to a Django backend serving JSON API
 
  Users can also veiw there consupmtion information in more details on the stats page. The stats page incorporates a world map SVG to track where the bottles that the user purchased are from and provides average rating and price details.
 
-The live version of this app can be viewed [here.](https://cocky-aryabhata-964b73.netlify.app/)
+The live version of this app can be viewed [here.](https://my-vine-list-frontend.herokuapp.com/)
 
 The backend GitHub can be found [here.](https://github.com/Joshua-Zalcman/my-vine-list-backend)
 
