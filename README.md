@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+<br />
+<p align="center">
+  <h2 align="center">My Vine List (Backend)</h2>
+<br>
+<Br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Technologies Used</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#ERD">ERD</a>
+    </li>
+     <li><a href="#future-enhancements">Future Enhancements</a></li>
+     <li><a href="#authors">Authors</a></li>
 
-## Available Scripts
+  </ol>
+</details>
 
-In the project directory, you can run:
+<!-- ABOUT THE PROJECT -->
 
-### `yarn start`
+# **About The Project**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+My vine list is built with Django + rest_framework on the backend and perfomrs full CRUD operations on the wine model and user model. The app serves JSON API to the frontend and uses token based authentication for logins/CRUD/protecting routes.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The live version of this app can be viewed [here.](https://cocky-aryabhata-964b73.netlify.app/)
 
-### `yarn test`
+The frontend GitHub can be found [here.](https://github.com/Joshua-Zalcman/my-vine-list-frontend)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# **Built With**
 
-### `yarn build`
+- [Django](https://docs.djangoproject.com/en/3.2/)
+- [REST Framework](https://www.django-rest-framework.org/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# **ERD**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![My Vine List ERD](./img/erd.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# **Future Enhancements**
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- New drinks model
+- Enable users to interact and send messages
+- Enhance token authentication by bringing in 3rd party library
+- Add user profile images
