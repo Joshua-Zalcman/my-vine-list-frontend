@@ -3,15 +3,11 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { useHistory } from 'react-router';
 // reactstrap components
 import {
-	Collapse,
 	UncontrolledCollapse,
 	DropdownToggle,
 	DropdownMenu,
 	DropdownItem,
 	UncontrolledDropdown,
-	FormGroup,
-	Form,
-	Input,
 	NavbarBrand,
 	Navbar,
 	NavItem,

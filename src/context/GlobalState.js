@@ -1,6 +1,5 @@
 import { useReducer, createContext } from 'react';
 import {
-	getToken,
 	getUserFromToken,
 	removeTokenFromStorage,
 } from '../actions/token_actions';
