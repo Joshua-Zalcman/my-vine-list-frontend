@@ -46,7 +46,8 @@ const MainNavbar = () => {
 						<NavbarBrand>My Vine List</NavbarBrand>
 					</LinkContainer>
 					<button
-						className="navbar-toggler"
+						style={{ zIndex: '1000',color:'rgba(255, 255, 255, 0.8)'}}
+						className="navbar-toggler "
 						id="navbarNavDropdown"
 						type="button"
 						onClick={() => {
@@ -114,7 +115,9 @@ const MainNavbar = () => {
 													My Settings
 												</DropdownItem>
 											</LinkContainer>
-											<DropdownItem onClick={handleLogout}>Logout</DropdownItem>
+											<DropdownItem href="#pablo" onClick={handleLogout}>
+												Logout
+											</DropdownItem>
 										</DropdownMenu>
 									</UncontrolledDropdown>
 								</>
