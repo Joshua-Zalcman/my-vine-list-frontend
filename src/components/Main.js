@@ -10,6 +10,7 @@ import axios from 'axios';
 import StatsPage from '../pages/StatsPage';
 import RegisterPage from '../pages/RegisterPage';
 import { getUserFromToken } from '../actions/token_actions';
+import ProfilePage from '../pages/ProfilePage';
 
 const Main = ({ URL }) => {
 	const history = useHistory();
@@ -163,6 +164,18 @@ const Main = ({ URL }) => {
 									updateWine={updateWine}
 								/>
 							);
+						} else {
+							history.push('/login');
+						}
+					}}
+				/>
+				<Route
+					path="/user/profile"
+					render={(pr) => {
+						const token = localStorage.getItem('token');
+						const user = getUserFromToken();
+						if ((token && userInfo.username) || user.username) {
+							return <ProfilePage {...pr} />;
 						} else {
 							history.push('/login');
 						}
