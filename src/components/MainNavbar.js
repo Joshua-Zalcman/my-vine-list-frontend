@@ -42,7 +42,7 @@ const MainNavbar = () => {
 						<NavbarBrand>My Vine List</NavbarBrand>
 					</LinkContainer>
 					<button
-						style={{ zIndex: '1000',color:'rgba(255, 255, 255, 0.8)'}}
+						style={{ zIndex: '1000', color: 'rgba(255, 255, 255, 0.8)' }}
 						className="navbar-toggler "
 						id="navbarNavDropdown"
 						type="button"
@@ -97,17 +97,17 @@ const MainNavbar = () => {
 											{userInfo.username}
 										</DropdownToggle>
 										<DropdownMenu aria-labelledby="navbarDropdownMenuLink">
-											<LinkContainer to="/profile">
+											<LinkContainer to="/user/profile">
 												<DropdownItem
 													href="#pablo"
-													onClick={(e) => e.preventDefault()}>
+													>
 													My Profile
 												</DropdownItem>
 											</LinkContainer>
 											<LinkContainer to="/settings">
 												<DropdownItem
 													href="#pablo"
-													onClick={(e) => e.preventDefault()}>
+													>
 													My Settings
 												</DropdownItem>
 											</LinkContainer>
